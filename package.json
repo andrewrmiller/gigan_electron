@@ -1,7 +1,8 @@
 {
   "name": "gigan",
   "productName": "Gigan",
-  "description": "Electron application boilerplate based on React, React Router, Webpack, React Fast Refresh for rapid application development",
+  "description": "Gigan is a desktop client for Jira.",
+  "author": "Andrew Miller <andrew@westlakelabs.com>",
   "scripts": {
     "build": "concurrently \"yarn build:main\" \"yarn build:renderer\"",
     "build:main": "cross-env NODE_ENV=production webpack --config ./.erb/configs/webpack.config.main.prod.babel.js",
@@ -29,7 +30,7 @@
   },
   "build": {
     "productName": "Gigan",
-    "appId": "com.westlakelabs.Gigan",
+    "appId": "com.westlakelabs.gigan",
     "files": [
       "dist/",
       "node_modules/",
@@ -65,8 +66,14 @@
       "target": ["nsis"]
     },
     "linux": {
-      "target": ["AppImage"],
-      "category": "Development"
+      "target": ["deb"],
+      "category": "Utils",
+      "packageCategory": "utils",
+      "icon": "assets/icons",
+      "maintainer": "Andrew Miller <andrew@westlakelabs.com>",
+      "synopsis": "Desktop client for Jira"
+    },
+    "deb": {
     },
     "directories": {
       "app": "src",
@@ -76,13 +83,13 @@
     "extraResources": ["./assets/**"],
     "publish": {
       "provider": "github",
-      "owner": "gigan",
-      "repo": "gigan"
+      "owner": "andrewrmiller",
+      "repo": "gigan_electron"
     }
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gigan/gigan/issues"
+    "url": "https://https://github.com/andrewrmiller/gigan_electron/issues"
   },
   "keywords": [
     "electron",
@@ -95,7 +102,7 @@
     "hot",
     "reload"
   ],
-  "homepage": "https://github.com/gigan/gigan#readme",
+  "homepage": "https://github.com/andrewrmiller/gigan_electron#readme",
   "jest": {
     "testURL": "http://localhost/",
     "moduleNameMapper": {
@@ -160,7 +167,7 @@
     "css-minimizer-webpack-plugin": "^1.1.5",
     "detect-port": "^1.3.0",
     "electron": "^11.0.1",
-    "electron-builder": "^22.10.5",
+    "electron-builder": "^22.11.7",
     "electron-devtools-installer": "^3.1.1",
     "electron-notarize": "^1.0.0",
     "electron-rebuild": "^2.3.2",
